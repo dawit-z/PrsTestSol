@@ -45,5 +45,16 @@ namespace PrsTestClassLibrary.Controllers
         {
             _context.SaveChanges();
         }
+
+        public void Remove(int id)
+        {
+            var user = GetByPK(id);
+            if(user is null)
+            {
+                throw new Exception("User not found");
+            }
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
     }
 }
