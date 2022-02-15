@@ -56,5 +56,11 @@ namespace PrsTestClassLibrary.Controllers
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
+
+        // Login Method w method syntax 
+        public User Login(string username, string password)
+        {
+           return _context.Users.SingleOrDefault(x => x.Username == username && x.Password == password);
+        }
     }
 }
